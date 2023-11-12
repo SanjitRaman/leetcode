@@ -8,17 +8,23 @@
 
 class LeetcodeInput {
 public:
-	std::vector<int> read_leetcode_list() {
+	
+	/// initialise the vector v to the values passed in via cin.
+	bool read_leetcode_list(std::vector<int> * v) {
 		std::string s;
-
 		std::getline(std::cin, s);
+		if (s != "") {
+			std::istringstream ss{ std::regex_replace(s, std::regex{R"(\[|\]|,)"}, " ") };
+			*v = { std::istream_iterator<int>{ss}, std::istream_iterator<int>{} };
+			return true;
+		}
+		else {
+			return false;
+		}
 
-		std::istringstream ss{ std::regex_replace(s, std::regex{R"(\[|\]|,)"}, " ") };
-		std::vector<int> v{ std::istream_iterator<int>{ss}, std::istream_iterator<int>{} };
-
-		return v;
 	}
 
+	/// Reads a single integer from a line containing one integer.
 	int read_integer() {
 		std::string s;
 		std::getline(std::cin, s);

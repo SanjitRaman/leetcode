@@ -24,19 +24,24 @@ public:
 int main()
 {
 	LeetcodeInput li;
-	std::vector<int> nums1 = li.read_leetcode_list();
-	int m = li.read_integer();
+	std::vector<int> nums1;
+	while (li.read_leetcode_list(&nums1)) {
+		int m = li.read_integer();
 
-	std::vector<int> nums2 = li.read_leetcode_list();
-	int n = li.read_integer();
+		std::vector<int> nums2;
+		li.read_leetcode_list(&nums2);
+
+		int n = li.read_integer();
 
 
-	Solution sol;
+		Solution sol;
 
-	sol.merge(nums1, m, nums2, n);
+		sol.merge(nums1, m, nums2, n);
 
-	for (int i = 0; i < m + n; i++) {
-		std::cout << nums1[i] << " ";
+		for (int i = 0; i < m + n; i++) {
+			std::cout << nums1[i] << " ";
+		}
+
 	}
 
 	return 0;

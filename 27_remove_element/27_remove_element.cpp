@@ -20,18 +20,19 @@ int main() {
 
 	// read inputs
 	LeetcodeInput li;
-
-	std::vector<int> nums = li.read_leetcode_list();
-	int val = li.read_integer();
-
-
-	// solve
-	Solution s;
-	int k = s.removeElement(nums, val);
+	std::vector<int> nums;
+	while (li.read_leetcode_list(&nums)) {
+		int val = li.read_integer();
 
 
-	// print output
-	std::cout << k << std::endl;
+		// solve
+		Solution s;
+		int k = s.removeElement(nums, val);
+
+
+		// print output
+		std::cout << k << std::endl;
+	}
 
 
 	return(0);

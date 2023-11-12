@@ -17,17 +17,18 @@ public:
 };
 
 int main() {
-	
-	// read input
+	// while there is input
 	LeetcodeInput li;
-	std::vector<int> nums = li.read_leetcode_list();
+	std::vector<int> nums;
+	while (li.read_leetcode_list(&nums)) {
 
-	// compute result
-	Solution s;
-	int k = s.removeDuplicates(nums);
+		// compute result
+		Solution s;
+		int k = s.removeDuplicates(nums);
 
-	// print result
-	li.print_vector(nums);
-	std::cout << k << std::endl;
+		// print result
+		li.print_vector(nums);
+		std::cout << k << std::endl;
+	}
 
 }
