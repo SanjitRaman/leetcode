@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{58530282
 		tools\leetcode_helper.h = tools\leetcode_helper.h
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "26_remove_duplicates_from_sorted_array", "26_remove_duplicates_from_sorted_array\26_remove_duplicates_from_sorted_array.vcxproj", "{D3216ADA-265F-4CD3-BC18-8A741A4F235C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -36,6 +38,14 @@ Global
 		{2D87A67F-AF75-4B5E-8618-A6FF6C5CC9A8}.Release|x64.Build.0 = Release|x64
 		{2D87A67F-AF75-4B5E-8618-A6FF6C5CC9A8}.Release|x86.ActiveCfg = Release|Win32
 		{2D87A67F-AF75-4B5E-8618-A6FF6C5CC9A8}.Release|x86.Build.0 = Release|Win32
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Debug|x64.ActiveCfg = Debug|x64
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Debug|x64.Build.0 = Debug|x64
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Debug|x86.ActiveCfg = Debug|Win32
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Debug|x86.Build.0 = Debug|Win32
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Release|x64.ActiveCfg = Release|x64
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Release|x64.Build.0 = Release|x64
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Release|x86.ActiveCfg = Release|Win32
+		{D3216ADA-265F-4CD3-BC18-8A741A4F235C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
