@@ -24,6 +24,17 @@ public:
 
 	}
 
+	bool read_leetcode_string(std::string* out) {
+		std::string s;
+		std::getline(std::cin, s);
+		if (s != "") {
+			std::istringstream ss{ std::regex_replace(s, std::regex{R"(\")"}, " ") };
+			*out = { std::istream_iterator<char>{ss}, std::istream_iterator<char> {} };
+			return true;
+		}
+		else return false;
+	}
+
 	/// Reads a single integer from a line containing one integer.
 	int read_integer() {
 		std::string s;
