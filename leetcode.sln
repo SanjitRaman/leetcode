@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "500_keyboard_row", "500_key
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "442_find_all_duplicates_in_an_array", "442_find_all_duplicates_in_an_array\442_find_all_duplicates_in_an_array.vcxproj", "{937E8B31-C088-4D9E-8918-FAC0E3ACA076}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1_two_sum", "1_two_sum\1_two_sum.vcxproj", "{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -167,6 +169,14 @@ Global
 		{937E8B31-C088-4D9E-8918-FAC0E3ACA076}.Release|x64.Build.0 = Release|x64
 		{937E8B31-C088-4D9E-8918-FAC0E3ACA076}.Release|x86.ActiveCfg = Release|Win32
 		{937E8B31-C088-4D9E-8918-FAC0E3ACA076}.Release|x86.Build.0 = Release|Win32
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Debug|x64.ActiveCfg = Debug|x64
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Debug|x64.Build.0 = Debug|x64
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Debug|x86.ActiveCfg = Debug|Win32
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Debug|x86.Build.0 = Debug|Win32
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Release|x64.ActiveCfg = Release|x64
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Release|x64.Build.0 = Release|x64
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Release|x86.ActiveCfg = Release|Win32
+		{B981B614-9A5D-47AF-97A5-1EE99FAF3C17}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
