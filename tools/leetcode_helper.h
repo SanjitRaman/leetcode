@@ -70,11 +70,15 @@ public:
 	}
 
 	/// Reads a single integer from a line containing one integer.
-	int read_integer() {
+	bool read_integer(int* n) {
 		std::string s;
 		std::getline(std::cin, s);
-
-		return std::stoi(s);
+		if(s != "") {
+			std::istringstream ss{ s };
+			*n = std::stoi(s);
+			return true;
+		}
+		else return false;
 
 	}
 
