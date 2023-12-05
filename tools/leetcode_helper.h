@@ -25,6 +25,46 @@ public:
 	}
 
 	bool read_leetcode_list(std::vector<std::vector<int>>& v) {
+		// Clear the vector before reading new values
+    	v.clear();
+
+		std::string input;
+		std::getline(std::cin, input);
+
+		if (input.empty()) return false;
+
+		std::istringstream iss(input);
+
+		char c;
+		iss >> c; // Read the first '['
+		while (iss >> c && c != ']') {
+			if (c == '[') {
+				std::vector<int> rowValues;
+				int num;
+				while (iss >> num) {
+					rowValues.push_back(num);
+					if (iss.peek() == ',') {
+						iss.ignore(); // Ignore the comma
+					}
+					else if (iss.peek() == ' ') {
+						iss.ignore(); // Ignore the space
+					}
+					else if (iss.peek() == ']') {
+						iss.ignore(); // Ignore the closing bracket
+						break;
+					}
+				}
+				v.push_back(rowValues);
+			}
+			if (iss.peek() == ',') {
+				iss.ignore(); // Ignore the comma between lists
+			}
+		}
+
+		return true;
+	}
+
+	bool read_leetcode_list(std::vector<std::vector<int>>& v) {
 		std::string s;
 		std::getline(std::cin, s);
 
