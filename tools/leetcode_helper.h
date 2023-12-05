@@ -114,4 +114,8 @@ public:
 
 		return;
 	}
+
+	void print_integer(int i) {
+		std::cout << i << std::endl;
+	}
 };
