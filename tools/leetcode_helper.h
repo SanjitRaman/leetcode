@@ -11,11 +11,12 @@ public:
 	
 	/// initialise the vector v to the values passed in via cin.
 	bool read_leetcode_list(std::vector<int>& v) {
+		v.clear();
 		std::string s;
 		std::getline(std::cin, s);
 		if (s != "") {
 			std::istringstream ss{ std::regex_replace(s, std::regex{R"(\[|\]|,)"}, " ") };
-			*v = { std::istream_iterator<int>{ss}, std::istream_iterator<int>{} };
+			v = { std::istream_iterator<int>{ss}, std::istream_iterator<int>{} };
 			return true;
 		}
 		else {
@@ -132,11 +133,12 @@ public:
 	}
 
 	bool read_leetcode_string(std::string& out) {
+		out.clear();
 		std::string s;
 		std::getline(std::cin, s);
 		if (s != "") {
 			std::istringstream ss{ std::regex_replace(s, std::regex{R"(\")"}, " ") };
-			*out = { std::istream_iterator<char>{ss}, std::istream_iterator<char> {} };
+			out = { std::istream_iterator<char>{ss}, std::istream_iterator<char> {} };
 			return true;
 		}
 		else return false;
@@ -148,7 +150,7 @@ public:
 		std::getline(std::cin, s);
 		if(s != "") {
 			std::istringstream ss{ s };
-			*n = std::stoi(s);
+			n = std::stoi(s);
 			return true;
 		}
 		else return false;
