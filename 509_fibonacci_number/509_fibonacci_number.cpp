@@ -71,7 +71,7 @@ int main() {
     LeetcodeInput li;
     Solution s;
     int n;
-    while(li.read_integer(&n)) {
+    while(li.read_integer(n)) {
         std::cout << s.fib(n) << std::endl;
     }
 

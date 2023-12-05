@@ -45,8 +45,8 @@ int main() {
 	std::vector<int> nums;
 	int target;
 	std::vector<int> indices;
-	while (li.read_leetcode_list(&nums)) {
-		target = li.read_integer();
+	while (li.read_leetcode_list(nums)) {
+		li.read_integer(target);
 
 		indices = s.twoSum(nums, target);
 

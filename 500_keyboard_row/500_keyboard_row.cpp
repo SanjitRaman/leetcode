@@ -44,7 +44,7 @@ int main() {
 	Solution s;
 
 	std::vector<std::string> words;
-	while (li.read_leetcode_list(&words)) {
+	while (li.read_leetcode_list(words)) {
 		std::vector<std::string> result = s.findWords(words);
 		li.print_vector(result);
 		words.clear();

@@ -28,7 +28,7 @@ int main() {
 	std::vector<int> testcase;
 	std::vector<int> duplicates;
 
-	while (li.read_leetcode_list(&testcase)) {
+	while (li.read_leetcode_list(testcase)) {
 		duplicates = s.findDuplicates(testcase);
 		li.print_vector(duplicates);
 

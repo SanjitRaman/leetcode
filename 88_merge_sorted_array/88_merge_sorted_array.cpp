@@ -25,21 +25,30 @@ int main()
 {
 	LeetcodeInput li;
 	std::vector<int> nums1;
-	while (li.read_leetcode_list(&nums1)) {
-		int m = li.read_integer();
+	int m,n;
+	while (li.read_leetcode_list(nums1)) {
+		if(!li.read_integer(m)) {
+			std::cout << "m not read" << std::endl;
+		}
+		else {
 
-		std::vector<int> nums2;
-		li.read_leetcode_list(&nums2);
+			std::vector<int> nums2;
 
-		int n = li.read_integer();
+			if(!li.read_leetcode_list(nums2)) {
+				std::cout << "nums2 not read" << std::endl;
+			}
+			else if(!li.read_integer(n)) {
+				std::cout << "n not read" << std::endl;
+			}
+			else {
+				Solution sol;
 
+				sol.merge(nums1, m, nums2, n);
 
-		Solution sol;
-
-		sol.merge(nums1, m, nums2, n);
-
-		for (int i = 0; i < m + n; i++) {
-			std::cout << nums1[i] << " ";
+				for (int i = 0; i < m + n; i++) {
+					std::cout << nums1[i] << " ";
+				}
+			}
 		}
 
 	}

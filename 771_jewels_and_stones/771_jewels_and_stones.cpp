@@ -29,8 +29,8 @@ int main() {
 	std::string stones;
 
 	for (int i = 0; i < 2; i++) {
-		li.read_leetcode_string(&jewels);
-		li.read_leetcode_string(&stones);
+		li.read_leetcode_string(jewels);
+		li.read_leetcode_string(stones);
 		std::cout << s.numJewelsInStones(jewels, stones) << std::endl;
 
 		jewels.clear();

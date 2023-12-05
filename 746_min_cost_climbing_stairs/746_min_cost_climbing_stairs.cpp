@@ -67,7 +67,7 @@ int main() {
     LeetcodeInput li;
     Solution s;
     std::vector<int> cost;
-    while(li.read_leetcode_list(&cost)) {
+    while(li.read_leetcode_list(cost)) {
         std::cout << s.minCostClimbingStairs(cost) << std::endl;
     }
 
