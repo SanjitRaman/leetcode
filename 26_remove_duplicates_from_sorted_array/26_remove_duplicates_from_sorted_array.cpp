@@ -20,7 +20,7 @@ int main() {
 	// while there is input
 	LeetcodeInput li;
 	std::vector<int> nums;
-	while (li.read_leetcode_list(&nums)) {
+	while (li.read_leetcode_list(nums)) {
 
 		// compute result
 		Solution s;

@@ -10,7 +10,7 @@ class LeetcodeInput {
 public:
 	
 	/// initialise the vector v to the values passed in via cin.
-	bool read_leetcode_list(std::vector<int> * v) {
+	bool read_leetcode_list(std::vector<int>& v) {
 		std::string s;
 		std::getline(std::cin, s);
 		if (s != "") {
@@ -24,7 +24,40 @@ public:
 
 	}
 
-	bool read_leetcode_list(std::vector<std::string>* v) {
+	bool read_leetcode_list(std::vector<std::vector<int>>& v) {
+		std::string s;
+		std::getline(std::cin, s);
+
+		if (s.empty()) {
+			return false;
+		}
+
+		// Remove '[' and ']', replace ',' and any whitespace with ' ' to create a space-separated string
+		std::string cleanedString = std::regex_replace(s, std::regex{R"(\[|\]|\s)"}, "");
+		cleanedString = std::regex_replace(cleanedString, std::regex{R"(,)"}, " ");
+
+		// Use a string stream to read integers from the cleaned string
+		std::istringstream ss(cleanedString);
+
+		// Use two nested loops to read integers into the 2D vector
+		int num;
+		while (ss >> num) {
+			v.emplace_back(); // Add a new row
+			v.back().push_back(num); // Add the first element of the row
+
+			// Read the remaining elements of the row
+			while (ss.peek() == ' ') {
+				ss.ignore();
+				ss >> num;
+				v.back().push_back(num);
+			}
+		}
+
+		return true;
+	}
+
+
+	bool read_leetcode_list(std::vector<std::string>& v) {
 		std::string input;
 
 		std::getline(std::cin, input);
@@ -46,7 +79,7 @@ public:
 				while (iss.get(ch) && ch != '\"') {
 					token += ch;
 				}
-				v->push_back(token);
+				v.push_back(token);
 			}
 			else if (ch == ',') {
 				// Handle comma between strings (skip commas outside quotes)
@@ -58,7 +91,7 @@ public:
 
 	}
 
-	bool read_leetcode_string(std::string* out) {
+	bool read_leetcode_string(std::string& out) {
 		std::string s;
 		std::getline(std::cin, s);
 		if (s != "") {
@@ -70,7 +103,7 @@ public:
 	}
 
 	/// Reads a single integer from a line containing one integer.
-	bool read_integer(int* n) {
+	bool read_integer(int& n) {
 		std::string s;
 		std::getline(std::cin, s);
 		if(s != "") {

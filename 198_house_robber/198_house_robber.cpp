@@ -32,7 +32,7 @@ int main() {
   LeetcodeInput li;
 
   std::vector<int> nums;
-  while(li.read_leetcode_list(&nums)) {
+  while(li.read_leetcode_list(nums)) {
     li.print_integer(s.rob(nums));
   }
   return 0;

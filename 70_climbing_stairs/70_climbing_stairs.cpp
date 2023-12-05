@@ -78,7 +78,7 @@ int main() {
     Solution s;
     LeetcodeInput li;
     int n;
-    while(li.read_integer(&n)) {
+    while(li.read_integer(n)) {
         std::cout << s.climbStairs(n) << std::endl;
     }
 

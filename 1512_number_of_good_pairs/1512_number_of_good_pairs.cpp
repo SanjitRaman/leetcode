@@ -34,7 +34,7 @@ int main() {
 	std::vector<int> v;
 
 	for (int i = 0; i < 3; i++) {
-		li.read_leetcode_list(&v);
+		li.read_leetcode_list(v);
 		int goodpairs = s.numIdenticalPairs(v);
 		std::cout << goodpairs << std::endl;
 		v.clear();

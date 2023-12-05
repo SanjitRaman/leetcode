@@ -24,8 +24,8 @@ int main() {
   LeetcodeInput li;
 
   int m, n;
-  while(li.read_integer(&m)) {
-    if(li.read_integer(&n))
+  while(li.read_integer(m)) {
+    if(li.read_integer(n))
         li.print_integer(s.uniquePaths(m, n));
   }
   return 0;

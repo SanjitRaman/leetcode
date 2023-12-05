@@ -43,7 +43,7 @@ int main() {
 	std::vector<int> prices;
 
 	// while input exists
-	while (li.read_leetcode_list(&prices)) {
+	while (li.read_leetcode_list(prices)) {
 
 		// compute
 		Solution s;

@@ -21,7 +21,7 @@ int main() {
 	// read inputs
 	LeetcodeInput li;
 	std::vector<int> nums;
-	while (li.read_leetcode_list(&nums)) {
+	while (li.read_leetcode_list(nums)) {
 		int val = li.read_integer();
 
 
