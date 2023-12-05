@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "..\tools\leetcode_helper.h"
+#include "../tools/leetcode_helper.h"
 
 class Solution {
 public:
