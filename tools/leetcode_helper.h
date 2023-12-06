@@ -65,38 +65,6 @@ public:
 		return true;
 	}
 
-	bool read_leetcode_list(std::vector<std::vector<int>>& v) {
-		std::string s;
-		std::getline(std::cin, s);
-
-		if (s.empty()) {
-			return false;
-		}
-
-		// Remove '[' and ']', replace ',' and any whitespace with ' ' to create a space-separated string
-		std::string cleanedString = std::regex_replace(s, std::regex{R"(\[|\]|\s)"}, "");
-		cleanedString = std::regex_replace(cleanedString, std::regex{R"(,)"}, " ");
-
-		// Use a string stream to read integers from the cleaned string
-		std::istringstream ss(cleanedString);
-
-		// Use two nested loops to read integers into the 2D vector
-		int num;
-		while (ss >> num) {
-			v.emplace_back(); // Add a new row
-			v.back().push_back(num); // Add the first element of the row
-
-			// Read the remaining elements of the row
-			while (ss.peek() == ' ') {
-				ss.ignore();
-				ss >> num;
-				v.back().push_back(num);
-			}
-		}
-
-		return true;
-	}
-
 
 	bool read_leetcode_list(std::vector<std::string>& v) {
 		std::string input;
@@ -160,6 +128,10 @@ public:
 	//int read_string(std::istringstream ss) {
 
 	//}
+
+	void print_string(const std::string& s) {
+		std::cout << "\"" << s << "\"" << std::endl;
+	}
 
 	void print_vector(std::vector<int>& v) {
 		if (v.empty()) {
