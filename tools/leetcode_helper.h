@@ -165,6 +165,28 @@ public:
 		return;
 	}
 
+	void print_vector(std::vector<std::vector<int>>& v) {
+		std::cout << "[";
+		if (v.empty()) {
+			std::cout << "]" << std::endl;
+			return;
+		}
+
+		for (int i = 0; i < v.size() - 1; i++) {
+			std::cout << "[";
+			for (int j = 0; j < v[i].size() - 1; j++) {
+				std::cout << v[i][j] << ", ";
+			}
+			std::cout << v[i].back() << "], ";
+		}
+
+		std::cout << "[";
+		for (int j = 0; j < v.back().size() - 1; j++) {
+			std::cout << v.back()[j] << ", ";
+		}
+		std::cout << v.back().back() << "]]" << std::endl;
+	}
+
 	void print_integer(int i) {
 		std::cout << i << std::endl;
 	}
