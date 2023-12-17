@@ -104,12 +104,15 @@ public:
 		out.clear();
 		std::string s;
 		std::getline(std::cin, s);
-		if (s != "") {
-			std::istringstream ss{ std::regex_replace(s, std::regex{R"(\")"}, " ") };
-			out = { std::istream_iterator<char>{ss}, std::istream_iterator<char> {} };
+		if (!s.empty()) {
+			size_t start = s.find_first_of("\"") + 1;
+			size_t end = s.find_last_of("\"");
+			out = s.substr(start, end - start);
 			return true;
 		}
-		else return false;
+		else {
+			return false;
+		}
 	}
 
 	/// Reads a single integer from a line containing one integer.
