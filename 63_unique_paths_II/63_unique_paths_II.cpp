@@ -42,7 +42,9 @@ public:
         }
     }
 
-    int uniquePathsWithObstacles(std::vector<std::vector<int>>& obstacleGrid) {
+    // Time: O(n*m)
+    // Space: O(n*m)
+    int uniquePathsWithObstacles0(std::vector<std::vector<int>>& obstacleGrid) {
         m = obstacleGrid.size();    // num. rows
         n = obstacleGrid[0].size(); // num. cols
 
@@ -60,9 +62,32 @@ public:
         //      if each is not an obstacle
 
         return dfs(std::make_pair(0,0), obstacleGrid, dp);
-
-
     }
+
+    int uniquePathsWithObstacles(std::vector<std::vector<int>>& obstacleGrid) {
+        m = obstacleGrid.size();
+        n = obstacleGrid[0].size();
+
+        std::vector<long int> curr_row(n+1, 0);
+        curr_row[n-1] = 1;
+
+        for(int r = m-1; r >= 0; r--) {
+            for(int c = n-1; c >= 0; c--) {
+                // if its an obstacle, set to 0 ways.
+                if(obstacleGrid[r][c]) {
+                    curr_row[c] = 0;
+                }
+                // else sum the row below and the cell to the right.
+                else {
+                    curr_row[c] = curr_row[c] + curr_row[c+1];
+                }
+            }
+        }
+
+        return curr_row[0];
+    }
+
+    
 };
 
 int main() {
