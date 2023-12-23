@@ -1,4 +1,5 @@
 #include "../tools/leetcode_helper.h"
+#include <limits>
 
 class Solution
 {
@@ -7,11 +8,12 @@ public:
     {
         return std::min(a, std::min(b, c));
     }
+
     int minFallingPathSum(std::vector<std::vector<int>> &matrix)
     {
         int n = matrix.size();
 
-        std::vector<int> dp(n + 2, 101);
+        std::vector<int> dp(n + 2, 10001);
         std::vector<int> dp2 = dp;
         for (int i = 0; i < n; i++)
             dp[i + 1] = matrix[n - 1][i];
@@ -20,7 +22,6 @@ public:
         {
             for (int c = 0; c < n; c++)
             {
-                std::cout << "r: " << r << " c: " << c << std::endl;
                 dp2[c + 1] = matrix[r][c] + min3(dp[c], dp[c + 1], dp[c + 2]);
             }
             dp2[n] = matrix[r][n - 1] + min3(dp[n - 1], dp[n], dp[n + 1]);
