@@ -14,19 +14,20 @@ public:
         int n = matrix.size();
 
         std::vector<int> dp(n + 2, 10001);
-        std::vector<int> dp2 = dp;
         for (int i = 0; i < n; i++)
             dp[i + 1] = matrix[n - 1][i];
 
+        int prevComputedValue, computedValue;
         for (int r = n - 2; r >= 0; r--)
         {
-            for (int c = 0; c < n; c++)
+            int prevComputedValue = matrix[r][0] + min3(dp[0], dp[1], dp[2]);
+            for (int c = 1; c < n; c++)
             {
-                dp2[c + 1] = matrix[r][c] + min3(dp[c], dp[c + 1], dp[c + 2]);
+                computedValue = matrix[r][c] + min3(dp[c], dp[c + 1], dp[c + 2]);
+                dp[c] = prevComputedValue;
+                prevComputedValue = computedValue;
             }
-            dp2[n] = matrix[r][n - 1] + min3(dp[n - 1], dp[n], dp[n + 1]);
-
-            dp = dp2;
+            dp[n] = computedValue;
         }
 
         return *std::min_element(dp.begin() + 1, dp.end() - 1);
