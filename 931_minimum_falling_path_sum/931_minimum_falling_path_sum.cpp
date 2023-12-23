@@ -3,35 +3,32 @@
 class Solution
 {
 public:
-    int calculateSquare(int currValue, int cellDiagonalLeft, int cellBelow, int cellDiagonalRight)
+    int min3(int a, int b, int c)
     {
-        return currValue + std::min(cellDiagonalLeft, std::min(cellBelow, cellDiagonalRight));
+        return std::min(a, std::min(b, c));
     }
-
     int minFallingPathSum(std::vector<std::vector<int>> &matrix)
     {
-        int numRows = matrix.size();
-        std::vector<int> currRow = matrix[numRows - 1];
+        int n = matrix.size();
 
-        // insert maxElement at the front and the back of currRow
-        int maxElement = 101; // Replace with actual maximum element if known
-        currRow.insert(currRow.begin(), maxElement);
-        currRow.push_back(maxElement);
+        std::vector<int> dp(n + 2, 101);
+        std::vector<int> dp2 = dp;
+        for (int i = 0; i < n; i++)
+            dp[i + 1] = matrix[n - 1][i];
 
-        int prevValue = 101;
-
-        for (int rowIndex = numRows - 2; rowIndex >= 0; rowIndex--)
+        for (int r = n - 2; r >= 0; r--)
         {
-            for (int i = 1; i < numRows; i++)
+            for (int c = 0; c < n; c++)
             {
-                currRow[i] = calculateSquare(matrix[rowIndex][i], prevValue, currRow[i + 1], currRow[i + 2]);
-                prevValue = currRow[i];
+                std::cout << "r: " << r << " c: " << c << std::endl;
+                dp2[c + 1] = matrix[r][c] + min3(dp[c], dp[c + 1], dp[c + 2]);
             }
-            currRow[numRows] = calculateSquare(matrix[rowIndex][numRows - 1], prevValue, );
+            dp2[n] = matrix[r][n - 1] + min3(dp[n - 1], dp[n], dp[n + 1]);
+
+            dp = dp2;
         }
 
-        // find the minimum element of currRow to get the minFallingPathSum.
-        return *std::min_element(currRow.begin() + 1, currRow.end() - 1);
+        return *std::min_element(dp.begin() + 1, dp.end() - 1);
     }
 };
 
