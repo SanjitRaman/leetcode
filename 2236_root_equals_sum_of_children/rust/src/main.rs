@@ -1,3 +1,7 @@
+// 2236. Root Equals Sum of Children
+// Source: https://leetcode.com/problems/root-equals-sum-of-children/
+// Author: Sanjit Raman
+
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
